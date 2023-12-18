@@ -10,7 +10,6 @@ export const Container = () => {
     const { filteredProducts } = useContext( FilterContext );
 
     const products = filteredProducts( productsDb );
-    console.log({ products });
 
     return (
         <CartProvider>

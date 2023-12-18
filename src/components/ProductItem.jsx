@@ -10,7 +10,6 @@ export const ProductItem = ({ thumbnail, title, price, product, id }) => {
         return cart.some(( item ) => item.id === product.id);
     }
 
-    console.log({ cart });
     return (
         <li className='product-item'>
             <div className='image-container-product-item'>

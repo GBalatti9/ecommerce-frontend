@@ -42,7 +42,6 @@ export const useCart = () => {
         })
     }
 
-    console.log({ cart });
     return {
         cart,
         addProductToCart,

@@ -8,8 +8,6 @@ export const CartProducts = () => {
 
     const { cart } = useContext(CartContext);
 
-    console.log({ cart });
-
     return (
         <>
             <ul className='cart-products-container'>
