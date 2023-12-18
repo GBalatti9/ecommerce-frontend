@@ -1,9 +1,10 @@
-import { ProductList } from "./components/ProductList"
+import { products } from './database/products.json';
+import { ProductList } from "./components/ProductList";
 
 export const Container = () => {
     return (
         <>
-        <ProductList />
+        <ProductList products = { products } />
         </>
     )
 }

@@ -1,14 +1,15 @@
 import './ProductItem.css'
 
-export const ProductItem = () => {
+export const ProductItem = ({ thumbnail, title, price, product, id }) => {
+    console.log({ thumbnail, title, price, product });
     return (
         <li className='product-item'>
             <div className='image-container-product-item'>
-                <img src="https://i.dummyjson.com/data/products/30/thumbnail.jpg" alt="Key holder" />
+                <img src={ thumbnail } alt={ title } />
             </div>
             <div className='info-container-product-item'>
-                <p>Key holder</p>
-                <p>$ 30</p>
+                <p>{ title }</p>
+                <p>$ { price }</p>
             </div>
             <div className='button-container-product-item'>
                 <button className='button-product-item'>Add to cart</button>

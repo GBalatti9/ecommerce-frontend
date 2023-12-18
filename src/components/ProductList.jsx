@@ -1,11 +1,19 @@
-import { ProductItem } from "./ProductItem"
+import './ProductList.css';
+import { ProductItem } from "./ProductItem";
 
-
-export const ProductList = () => {
+export const ProductList = ({ products }) => {
     return (
         <>
-        <ul>
-            <ProductItem />
+        <ul className='product-list-container'>
+            {
+                products.map(( product ) => (
+                    <ProductItem 
+                        key={ product.id }
+                        product = { product }
+                        { ...product }
+                    />
+                ))
+            }
         </ul>
         </>
     )
