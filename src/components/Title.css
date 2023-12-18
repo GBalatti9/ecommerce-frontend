@@ -1,0 +1,13 @@
+.header-info-container{
+    background-color: rgb(227, 227, 227);
+    text-align: center;
+    padding: 4%;
+    margin-bottom: 15px;
+}
+
+.header-info-container h1 {
+    background-color: rgb(227, 227, 227);
+}
+.header-info-container h3 {
+    background-color: rgb(227, 227, 227);
+}

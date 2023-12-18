@@ -33,6 +33,10 @@
     align-items: center;
 }
 
+.info-container-price{
+    padding-top: 5px;
+}
+
 .button-container-product-item{
     display: flex;
 }
