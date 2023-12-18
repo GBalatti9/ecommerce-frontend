@@ -24,6 +24,7 @@
 }
 
 .info-container-product-item{
+    font-weight: 900;
     font-size: 1.1rem;
     padding: 5px;
     display: flex;
