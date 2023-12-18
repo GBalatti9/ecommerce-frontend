@@ -4,7 +4,7 @@ import './Filters.css';
 import { useContext, useId } from "react";
 
 
-export const Filters = ({ products }) => {
+export const Filters = ({ products, selectedCategory, onCategoryChange }) => {
 
     const { updateFilter } = useContext( FilterContext );
 
@@ -16,6 +16,9 @@ export const Filters = ({ products }) => {
     const handleChange = ({ target }) => {
         const { name, value } = target;
         updateFilter( name, value );
+        if (name === 'category') {
+            onCategoryChange( value );
+        }
     }
 
     return (
@@ -34,7 +37,13 @@ export const Filters = ({ products }) => {
             </div>
             <div className='filter-category'>
                 <label htmlFor={ categoryId }>Category</label>
-                <select name="category" id={ categoryId } className='select-category' onChange={ handleChange }>
+                <select 
+                    name="category"
+                    id={ categoryId } 
+                    className='select-category'
+                    onChange={ handleChange } 
+                    value={ selectedCategory } >
+
                     <option value="all">all</option>
                     {
                         categories.map(( category, i ) => (
