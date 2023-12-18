@@ -5,7 +5,7 @@ import { CartContext } from "./CartContext";
 
 export const CartProvider = ({ children }) => {
 
-    const { cart, addProductToCart, removeProductFromCart, clearCart } = useCart();
+    const { cart, addProductToCart, removeProductFromCart, clearCart, removeOneFromCart } = useCart();
 
     return (
         <>
@@ -14,6 +14,7 @@ export const CartProvider = ({ children }) => {
             addProductToCart,
             removeProductFromCart,
             clearCart,
+            removeOneFromCart,
         }}>
             { children }
         </CartContext.Provider>

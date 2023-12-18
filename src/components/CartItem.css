@@ -1,0 +1,43 @@
+/* CartItem.css */
+
+.cart-item-li {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.image-container-cart-item {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.image-container-cart-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.button-add-one, .button-remove-one{
+    background-color: rgb(67, 122, 227);
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    padding: 5%;
+}
+
+.button-add-one:hover, .button-remove-one:hover{
+    box-shadow: 1px 1px 5px black;
+}
+
+
+.buttons-quantity{
+    width: 30%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

@@ -4,6 +4,7 @@ import { cartReducer } from "../reducer/cartReducer";
 const ACTIONS = {
     ADD_TO_CART: 'ADD_TO_CART',
     REMOVE_FROM_CART: 'REMOVE_FROM_CART',
+    REMOVE_ONE_FROM_CART: 'REMOVE_ONE_FROM_CART',
     CLEAR_CART: 'CLEAR_CART'
 }
 
@@ -34,11 +35,19 @@ export const useCart = () => {
         })
     }
 
+    const removeOneFromCart = ( product ) => {
+        dispatch({
+            type: ACTIONS.REMOVE_ONE_FROM_CART,
+            payload: product,
+        })
+    }
+
     console.log({ cart });
     return {
         cart,
         addProductToCart,
         removeProductFromCart,
+        removeOneFromCart,
         clearCart,
     }
 

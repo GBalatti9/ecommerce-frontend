@@ -1,0 +1,10 @@
+/* CartProducts.css */
+
+.cart-products-container {
+    list-style: none;
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 0; 
+    margin: 0; 
+    background-color: white;
+}
