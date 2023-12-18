@@ -1,10 +1,11 @@
-import './Header.css';
+import { Filters } from "./Filters";
 import { Title } from "./Title";
 
 export const Header = () => {
     return (
-        <div className='header-container'>
+        <div>
             <Title />
+            <Filters />
         </div>
     )
 }

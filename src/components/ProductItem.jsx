@@ -1,7 +1,7 @@
 import './ProductItem.css'
 
 export const ProductItem = ({ thumbnail, title, price, product, id }) => {
-    console.log({ thumbnail, title, price, product });
+
     return (
         <li className='product-item'>
             <div className='image-container-product-item'>
