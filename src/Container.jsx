@@ -5,7 +5,7 @@ import { Header } from './components/Header';
 export const Container = () => {
     return (
         <>
-        <Header />
+        <Header products={ products } />
         <ProductList products = { products } />
         </>
     )

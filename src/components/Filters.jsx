@@ -2,8 +2,9 @@ import './Filters.css';
 import { useId } from "react";
 
 
-export const Filters = () => {
+export const Filters = ({ products }) => {
 
+    const categories = [...new Set(products.map(( product ) => product.category))];
     const rangeId = useId();
     const categoryId = useId();
 
@@ -16,7 +17,12 @@ export const Filters = () => {
             <div className='filter-category'>
                 <label htmlFor={ categoryId }>Category</label>
                 <select name="category" id={ categoryId } className='select-category'>
-                    <option value="all">All</option>
+                    <option value="all">all</option>
+                    {
+                        categories.map(( category, i ) => (
+                            <option value={ category } key={ category + i }>{ category }</option>
+                        ))
+                    }
                 </select>
             </div>
         </div>

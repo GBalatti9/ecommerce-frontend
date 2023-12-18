@@ -1,11 +1,12 @@
 import { Filters } from "./Filters";
 import { Title } from "./Title";
 
-export const Header = () => {
+export const Header = ({ products }) => {
+
     return (
         <div>
             <Title />
-            <Filters />
+            <Filters products = { products }/>
         </div>
     )
 }
