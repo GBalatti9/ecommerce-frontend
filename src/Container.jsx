@@ -1,6 +1,9 @@
+import { ProductList } from "./components/ProductList"
 
 export const Container = () => {
     return (
-        <div>Container</div>
+        <>
+        <ProductList />
+        </>
     )
 }
