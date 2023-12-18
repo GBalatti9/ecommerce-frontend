@@ -10,6 +10,7 @@ export const ProductItem = ({ thumbnail, title, price, product, id }) => {
         return cart.some(( item ) => item.id === product.id);
     }
 
+    console.log({ cart });
     return (
         <li className='product-item'>
             <div className='image-container-product-item'>
@@ -21,8 +22,8 @@ export const ProductItem = ({ thumbnail, title, price, product, id }) => {
             </div>
             <div className='button-container-product-item'>
                 <button 
-                    className='button-product-item'
-                    onClick={() => 
+                className={` ${isInCart(product) ? 'red' : 'blue'} button-product-item`}
+                onClick={() => 
                     isInCart( product ) 
                     ? removeProductFromCart( product )
                     : addProductToCart( product )}
