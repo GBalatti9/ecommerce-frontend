@@ -32,6 +32,15 @@ export const ProductDetail = () => {
             <Link to={'/'}> Go Back </Link>
             <h1 className='title-product-detail'>{ title }</h1>
             <div className='product-detail-container'>
+                <div className='img-gallery'>
+                    {
+                        images.map(( img, i ) => (
+                            <div className={`img-gallery-box ${i === counter ? 'active' : 'opacity'}`}>
+                                <img src={ img } key={ img + i } onClick={() => setCounter( i )}/>
+                            </div>
+                        ))
+                    }
+                </div>
                 <div className='product-detail-img-container'>
                     <img 
                         src={ images[counter] ? images[counter] : reset() } 
@@ -43,12 +52,12 @@ export const ProductDetail = () => {
                         </div>
                 </div>
                 <div className='info-container-product-detail'>
-                    <h4>Description: { description }</h4>
+                    <h4>{ description }</h4>
                     <div className='price-container'>
-                        <h4>Initial price: <span className='initial-price-detail'>${ price }</span></h4>
-                        <h4>Discount: { discountPercentage }%</h4>
+                        <h4 className='final-price-detail'>${ (price - ((price * discountPercentage) / 100)).toFixed(2) }</h4>
+                        <h4 className='initial-price-detail'>${ price }</h4>
                     </div>
-                    <h4 className='final-price-detail'>Final price: ${ (price - ((price * discountPercentage) / 100)).toFixed(2) }</h4>
+                    <h4 style={{ color: 'green' }}>{ stock > 0 ? 'In stock' : 'Out of stock' }</h4>
                     <div className='button-container-detail'>
                         <button className='cart-detail'>Add to cart</button>
                         <button className='buy-detail'>Buy</button>
