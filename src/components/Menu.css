@@ -1,0 +1,26 @@
+.menu-button {
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.menu-button-container {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    width: 100%;
+    background-color: white;
+}
+
+.menu-button-container li input {
+    border: none;
+    background: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-bottom: 2px solid transparent; 
+    transition: border-bottom 0.3s ease-in-out; 
+}
+
+.menu-button-container li input:hover {
+    border-bottom: 2px solid #007bff; 
+}

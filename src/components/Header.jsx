@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Filters } from "./Filters";
 import { Menu } from "./Menu";
 import { Title } from "./Title";
+import './Title.css';
 
 export const Header = ({ products }) => {
     const [ selectedCategory, setSelectedCategory ] = useState('all');
@@ -12,8 +13,10 @@ export const Header = ({ products }) => {
 
     return (
         <div>
-            <Title />
-            <Menu products = { products } onCategoryChange = { handleCategoryChange }/>
+            <div className='header-info-container'>
+                <Title />
+                <Menu products = { products } onCategoryChange = { handleCategoryChange }/>
+            </div>
             <Filters products = { products } selectedCategory = { selectedCategory } onCategoryChange = { handleCategoryChange }/>
         </div>
     )

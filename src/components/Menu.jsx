@@ -1,3 +1,4 @@
+import './Menu.css';
 import { useContext } from "react";
 import { FilterContext } from "../context/FilterContext";
 
@@ -13,11 +14,21 @@ export const Menu = ({ products, onCategoryChange }) => {
     }
 
     return (
-        <ul>
+        <ul className='menu-button-container'>
+            <li>
+                <input 
+                    type="submit" 
+                    value='All' 
+                    className='menu-button' 
+                    name='category' 
+                    onClick={() => handleChange( 'all' )}/>
+            </li>
             {
                 categories.map(( category, i ) => (
                     <li key={ category + i }>
-                        <input 
+                        
+                        <input
+                            className='menu-button'
                             type="submit" 
                             value={ category.charAt(0).toUpperCase() + category.slice(1).toLowerCase() } 
                             name="category"
