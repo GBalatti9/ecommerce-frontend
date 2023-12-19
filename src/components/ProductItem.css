@@ -4,11 +4,13 @@
     overflow: hidden;
     border-radius: 5px;
     transition: all 0.5s ease-in-out;
+    background-color: white;
 }
 
 .image-container-product-item{
     width: 90%;
     margin: 10px auto 0 auto;
+    background-color: white;
 }
 
 .image-container-product-item img {
@@ -24,6 +26,7 @@
 }
 
 .info-container-product-item{
+    background-color: white;
     font-weight: 900;
     font-size: 1.1rem;
     padding: 5px;
@@ -33,11 +36,13 @@
     align-items: center;
 }
 
-.info-container-price{
+.info-container-price, .info-container-title{
+    background-color: white;
     padding-top: 5px;
 }
 
 .button-container-product-item{
+    background-color: white;
     display: flex;
 }
 

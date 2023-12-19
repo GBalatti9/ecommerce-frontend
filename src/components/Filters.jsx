@@ -6,7 +6,7 @@ import { useContext, useId } from "react";
 
 export const Filters = ({ products, selectedCategory, onCategoryChange }) => {
 
-    const { updateFilter } = useContext( FilterContext );
+    const { filters, updateFilter } = useContext( FilterContext );
 
     const categories = [...new Set(products.map(( product ) => product.category))];
 
@@ -29,11 +29,13 @@ export const Filters = ({ products, selectedCategory, onCategoryChange }) => {
                     type="range" 
                     name="minPrice" 
                     id={ rangeId }
+                    value={ filters.minPrice }
                     min="0" 
                     max="1000" 
                     className='input-price' 
                     onChange={ handleChange }
                 />
+                <span>{ filters.minPrice }</span>
             </div>
             <div className='filter-category'>
                 <label htmlFor={ categoryId }>Category</label>

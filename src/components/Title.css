@@ -3,6 +3,7 @@
     text-align: center;
     padding: 2%;
     margin-bottom: 15px;
+    box-shadow: 1px 1px 20px rgb(156, 156, 156);
 }
 
 .header-info-container h1 {
@@ -11,5 +12,5 @@
 }
 .header-info-container h3 {
     background-color: white;
-    padding-bottom: 50px;
+    padding-bottom: 35px;
 }

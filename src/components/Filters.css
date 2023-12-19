@@ -16,3 +16,10 @@
 .input-price, .select-category {
     margin-top: 5px;
 }
+
+.select-category{
+    border-radius: 5px;
+    text-align: center;
+    font-size: 15px;
+    background-color: white;
+}
