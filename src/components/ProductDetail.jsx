@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './ProductDetail.css';
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 export const ProductDetail = () => {
@@ -16,7 +16,11 @@ export const ProductDetail = () => {
     }
 
     const prevImage = () => {
-        setCounter( counter - 1 );
+        if( counter === 0 ){
+            setCounter(images.length - 1)
+        } else {
+            setCounter( counter - 1 );
+        }
     }
 
     const reset = () => {
@@ -25,6 +29,8 @@ export const ProductDetail = () => {
 
     return (
         <>
+            <Link to={'/'}> Go Back </Link>
+            <h1 className='title-product-detail'>{ title }</h1>
             <div className='product-detail-container'>
                 <div className='product-detail-img-container'>
                     <img 
@@ -32,19 +38,20 @@ export const ProductDetail = () => {
                         alt={title}
                         onClick={ nextImage }/>
                         <div className='next-prev-buttons'>
-                            <FontAwesomeIcon icon={faArrowLeft} />
-                            <FontAwesomeIcon icon={faArrowRight} />
+                            <FontAwesomeIcon icon={faArrowLeft} onClick={ prevImage }/>
+                            <FontAwesomeIcon icon={faArrowRight} onClick={ nextImage } />
                         </div>
                 </div>
-                <div>
-                    <h1>{ title }</h1>
-                    <h4>{ description }</h4>
-                    <h4>Initial price: ${ price }</h4>
-                    <h4>Discount: { discountPercentage }%</h4>
-                    <h4>Final price: ${ (price - ((price * discountPercentage) / 100)).toFixed(2) }</h4>
-                    <div>
-                        <button>Buy</button>
-                        <button>Add to cart</button>
+                <div className='info-container-product-detail'>
+                    <h4>Description: { description }</h4>
+                    <div className='price-container'>
+                        <h4>Initial price: <span className='initial-price-detail'>${ price }</span></h4>
+                        <h4>Discount: { discountPercentage }%</h4>
+                    </div>
+                    <h4 className='final-price-detail'>Final price: ${ (price - ((price * discountPercentage) / 100)).toFixed(2) }</h4>
+                    <div className='button-container-detail'>
+                        <button className='cart-detail'>Add to cart</button>
+                        <button className='buy-detail'>Buy</button>
                     </div>
                 </div>
             </div>
