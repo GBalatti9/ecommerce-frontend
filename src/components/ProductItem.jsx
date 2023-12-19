@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import './ProductItem.css'
 import { CartContext } from '../context/CartContext'
+import { Link } from 'react-router-dom';
 
 export const ProductItem = ({ thumbnail, title, price, product, id }) => {
 
@@ -11,6 +12,7 @@ export const ProductItem = ({ thumbnail, title, price, product, id }) => {
     }
 
     return (
+        <Link to={`/product/${id}`} state={{ product }}>
         <li className='product-item'>
             <div className='image-container-product-item'>
                 <img src={ thumbnail } alt={ title } />
@@ -35,5 +37,6 @@ export const ProductItem = ({ thumbnail, title, price, product, id }) => {
                         </button>
             </div>
         </li>
+        </Link>
     )
 }

@@ -5,6 +5,8 @@ import { FilterContext } from './context/FilterContext';
 import { useContext } from 'react';
 import { Cart } from './components/Cart';
 import { CartProvider } from './context/CartProvider';
+import { Route, Routes } from 'react-router-dom';
+import { ProductDetail } from './components/ProductDetail';
 
 export const Container = () => {
     const { filteredProducts } = useContext( FilterContext );
@@ -13,10 +15,17 @@ export const Container = () => {
     console.log({ products });
 
     return (
-        <CartProvider>
-            <Header products={ productsDb } />
-            <ProductList products = { products } />
-            <Cart/>
-        </CartProvider>
+            <CartProvider>
+                <Routes>
+                    <Route path='/' element={
+                        <>
+                            <Header products={ productsDb } />
+                            <ProductList products = { products } />
+                            <Cart/>
+                        </>
+                    } />
+                    <Route path='/product/:productId' element={ <ProductDetail /> }/>
+                </Routes>
+            </CartProvider>
     )
 }
