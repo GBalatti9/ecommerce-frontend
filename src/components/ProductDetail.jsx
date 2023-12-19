@@ -5,6 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from '../context/CartContext';
 import { Cart } from './Cart';
+import { useCounter } from '../hooks/useCounter';
 
 export const ProductDetail = () => {
     const { state } = useLocation();
@@ -12,23 +13,7 @@ export const ProductDetail = () => {
 
     const { addProductToCart } = useContext( CartContext );
 
-    const [ counter, setCounter ] = useState(0);
-
-    const nextImage = () => {
-        setCounter( counter + 1 );
-    }
-
-    const prevImage = () => {
-        if( counter === 0 ){
-            setCounter(images.length - 1)
-        } else {
-            setCounter( counter - 1 );
-        }
-    }
-
-    const reset = () => {
-        setCounter( 0 )
-    }
+    const { counter, setCounter, nextImage, prevImage, reset } = useCounter();
 
     return (
         <>
@@ -39,7 +24,7 @@ export const ProductDetail = () => {
                 <div className='img-gallery'>
                     {
                         images.map(( img, i ) => (
-                            <div className={`img-gallery-box ${i === counter ? 'active' : 'opacity'}`}>
+                            <div className={`img-gallery-box ${i === counter ? 'active' : 'opacity'}`} key={ img + i }>
                                 <img src={ img } key={ img + i } onClick={() => setCounter( i )}/>
                             </div>
                         ))
@@ -51,7 +36,7 @@ export const ProductDetail = () => {
                         alt={title}
                         onClick={ nextImage }/>
                         <div className='next-prev-buttons'>
-                            <FontAwesomeIcon icon={faArrowLeft} onClick={ prevImage }/>
+                            <FontAwesomeIcon icon={faArrowLeft} onClick={() => prevImage( images ) }/>
                             <FontAwesomeIcon icon={faArrowRight} onClick={ nextImage } />
                         </div>
                 </div>
