@@ -94,12 +94,14 @@
 .img-gallery{
     margin-left: 10px;
     overflow: hidden;
+    overflow-y: scroll;
     height: 450px;
     display: flex;
     flex-direction: column;
 }
 
 .img-gallery-box{
+    flex: 0 0 auto;
     width: 100px;
     height: 100px;
     margin: auto;
@@ -115,4 +117,22 @@
 
 .opacity {
     opacity: 30%;
+}
+
+.link-product-detail{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: 1px solid red;
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    border-radius: 12px;
+    transition: all 0.5s ease-in-out;
+}
+
+.link-product-detail:hover{
+    background-color: red;
+
 }

@@ -29,7 +29,7 @@ export const ProductDetail = () => {
 
     return (
         <>
-            <Link to={'/'}> Go Back </Link>
+            <Link to={'/'} className='link-product-detail'> Go Back </Link>
             <h1 className='title-product-detail'>{ title }</h1>
             <div className='product-detail-container'>
                 <div className='img-gallery'>
