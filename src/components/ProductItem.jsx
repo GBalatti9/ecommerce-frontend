@@ -11,6 +11,18 @@ export const ProductItem = ({ thumbnail, title, price, product, id }) => {
         return cart.some(( item ) => item.id === product.id);
     }
 
+    const handleButtonClick = ( e ) => {
+
+        e.preventDefault();
+
+        if (isInCart(product)) {
+            removeProductFromCart(product);
+        } else {
+            addProductToCart(product);
+        }
+        
+    }
+
     return (
         <Link to={`/product/${id}`} state={{ product }}>
         <li className='product-item'>
@@ -24,10 +36,7 @@ export const ProductItem = ({ thumbnail, title, price, product, id }) => {
             <div className='button-container-product-item'>
                 <button 
                 className={` ${isInCart(product) ? 'red' : 'blue'} button-product-item`}
-                onClick={() => 
-                    isInCart( product ) 
-                    ? removeProductFromCart( product )
-                    : addProductToCart( product )}
+                onClick={ handleButtonClick }
                     >
                         {
                             isInCart( product )

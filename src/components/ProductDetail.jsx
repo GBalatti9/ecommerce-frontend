@@ -1,13 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './ProductDetail.css';
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { CartContext } from '../context/CartContext';
+import { Cart } from './Cart';
 
 export const ProductDetail = () => {
     const { state } = useLocation();
     const { brand, description, discountPercentage, images, price, rating, stock, title } = state.product;
-    console.log({ brand, description, discountPercentage, images, price, rating, stock, title });
+
+    const { addProductToCart } = useContext( CartContext );
 
     const [ counter, setCounter ] = useState(0);
 
@@ -30,6 +33,7 @@ export const ProductDetail = () => {
     return (
         <>
             <Link to={'/'} className='link-product-detail'> Go Back </Link>
+            <Cart />
             <h1 className='title-product-detail'>{ title }</h1>
             <div className='product-detail-container'>
                 <div className='img-gallery'>
@@ -59,7 +63,7 @@ export const ProductDetail = () => {
                     </div>
                     <h4 style={{ color: 'green' }}>{ stock > 0 ? 'In stock' : 'Out of stock' }</h4>
                     <div className='button-container-detail'>
-                        <button className='cart-detail'>Add to cart</button>
+                        <button className='cart-detail' onClick={() => addProductToCart( state.product ) }>Add to cart</button>
                         <button className='buy-detail'>Buy</button>
                     </div>
                 </div>
